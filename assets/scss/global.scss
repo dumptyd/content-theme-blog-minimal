@@ -1,0 +1,33 @@
+*, ::before, ::after {
+  @apply dark:border-gray-600;
+}
+
+html {
+  font-size: 16px;
+  @screen md {
+    font-size: 18px;
+  }
+}
+
+body {
+  @apply transition-colors duration-200;
+}
+
+html, body {
+  @apply dark:bg-gray-900 dark:text-gray-400;
+  @include scrollbar;
+}
+
+a {
+  @apply hover:underline;
+}
+
+// Route change transition https://nuxtjs.org/docs/features/transitions/#global-settings
+.page-enter-active,
+.page-leave-active {
+  @apply transition-opacity duration-100;
+}
+.page-enter,
+.page-leave-to {
+  @apply opacity-0;
+}
