@@ -1,0 +1,49 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+      # add other branch names here if you'd like to deploy on push to those branches
+
+jobs:
+  build-deploy:
+    name: Build and deploy the blog to GitHub Pages
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js 12
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12'
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache node_modules
+        uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Check for errors
+        run: yarn lint
+
+      - name: Build
+        run: yarn generate
+
+      # to deploy to other hosting services, change this step
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./dist
