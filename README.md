@@ -92,10 +92,10 @@ git rebase upstream/master
 
 ### Might add in the future
 
-[ ] Code copy widget
-[ ] Full text search
-[ ] Additional options in navbar
-[ ] Draft state
-[ ] Table of contents
-[ ] Google/other analytics
-[ ] Sitemap
+- [ ] Code copy widget
+- [ ] Full text search
+- [ ] Additional options in navbar
+- [ ] Draft state
+- [ ] Table of contents
+- [ ] Google/other analytics
+- [ ] Sitemap
