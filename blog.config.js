@@ -33,7 +33,7 @@ module.exports = {
   fontName: '"IBM Plex Sans"',
 
   // path to the favicon file relative to `static/`. Use a png file.
-  faviconLink: '/favicon.png',
+  faviconLink: '/content-theme-blog-minimal/favicon.png',
 
   // social links - all links are optional, leave empty to hide. update `components/social.vue` to add more links
   github: 'https://github.com/',
