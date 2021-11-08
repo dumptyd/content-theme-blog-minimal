@@ -1,5 +1,5 @@
 <template>
-<div class="gallery__item">
+<div class="gallery__item col-6 md:col-4 lg:col-3">
   <a :href="src" target="_blank" class="gallery__image-container" title="Open full size image">
     <img :src="src" :alt="alt" class="gallery__image" loading="lazy">
   </a>
@@ -18,9 +18,6 @@ export default {
 };
 </script>
 <style lang="scss">
-.gallery__item {
-  @apply col-6 md:col-4 lg:col-3;
-}
 .gallery__item .gallery__image-container {
   @apply block w-full relative m-0 hover:no-underline;
   padding-bottom: 100%;

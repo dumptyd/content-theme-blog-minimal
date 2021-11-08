@@ -1,12 +1,8 @@
 <template>
 <div class="my-8">
-  <div class="gallery">
+  <!-- not abstracting this into a class because of the specificity issues in prod bundle -->
+  <div class="row g-3">
     <slot></slot>
   </div>
 </div>
 </template>
-<style lang="scss">
-.gallery {
-  @apply row g-3;
-}
-</style>
