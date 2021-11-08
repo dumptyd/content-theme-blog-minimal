@@ -29,7 +29,6 @@
   <!-- TODO: hide footer when there are no socials and showThemeLink is false -->
   <footer class="layout__footer">
     <social class="mr-auto mb-4" :size="24"></social>
-    <!-- TODO: add repository link -->
     <div v-if="showThemeLink" class="credit mb-4">
       <a href="https://github.com/dumptyd/content-theme-blog-minimal" target="_blank">Theme by @dumptyd</a>
     </div>
