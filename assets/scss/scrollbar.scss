@@ -1,0 +1,20 @@
+@mixin scrollbar {
+  /* Works on Firefox */
+  @apply transition-all duration-200;
+  scrollbar-width: thin;
+  scrollbar-color: #888 transparent;
+
+  /* Works on Chrome, Edge, and Safari */
+  &::-webkit-scrollbar {
+    @apply w-1 h-1 md:w-1.5 md:h-1.5;
+  }
+
+  &::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    @apply rounded-md transition-all duration-200;
+    background-color: #888;
+  }
+}
