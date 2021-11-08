@@ -1,0 +1,156 @@
+
+.prose {
+  img {
+    @apply border rounded-md text-center mx-auto;
+  }
+  // styles for inline code
+  code {
+    @apply px-2 bg-gray-200 font-normal font-mono rounded inline-block;
+    font-size: .8em;
+    &:before, &:after {
+      content: '';
+    }
+  }
+  a code {
+    @apply underline;
+  }
+  strong code {
+    @apply font-bold;
+  }
+
+  // slight tweaks for syntax highlighted code
+  .nuxt-content-highlight pre {
+    @include scrollbar;
+    @apply overflow-auto;
+    max-height: 75vh;
+    font-size: .85em;
+  }
+  .nuxt-content-highlight pre code {
+    font-size: 1em;
+  }
+  .nuxt-content-highlight > .filename {
+    @apply block text-sm text-right;
+  }
+
+  // h5 and h6 are otherwise styled as normal text
+  h5 {
+    @apply font-bold text-base;
+  }
+  h6 {
+    @apply text-sm font-medium;
+  }
+
+  // prose-blue doesn't cover all states
+  a:not(.link-native) {
+    @apply text-blue-500 hover:text-blue-600;
+    &:active {
+      @apply text-blue-600;
+    }
+    // TODO: decide whether to use this or not
+    // &:visited {
+    //   @apply text-purple-800;
+    // }
+  }
+
+  // standard quote styling
+  blockquote {
+    @apply text-gray-500 font-normal;
+  }
+
+  // add clickable anchor links next to headings
+  .icon.icon-link {
+    @apply absolute opacity-0 -ml-6 w-10 text-blue-500;
+    &:after {
+      content: '#';
+      font-size: 1em;
+    }
+  }
+  h1 .icon.icon-link {
+    @apply hidden; // main title should be the only h1 in a post, which will already be at the top
+  }
+  h2:hover .icon.icon-link, h3:hover .icon.icon-link, h4:hover .icon.icon-link, h5:hover .icon.icon-link {
+    @apply opacity-100; // show on hover for other headings
+  }
+
+  // task list
+  ul.contains-task-list {
+    @apply list-none;
+    >li:before {
+      @apply hidden;
+    }
+    >li {
+      @apply pl-0;
+    }
+    >li>input[type=checkbox] {
+      @apply mr-2;
+    }
+  }
+}
+
+.prose-light, .dark .dark\:prose-light {
+  @apply text-gray-400;
+
+  [class~="lead"] {
+    @apply text-gray-300;
+  }
+  .link-native {
+    @apply text-gray-300;
+  }
+  a:not(.link-native) {
+    // TODO: decide whether to use this or not
+    // &:visited {
+    //   @apply text-purple-500;
+    // }
+  }
+  strong {
+    @apply text-gray-300; // white
+  }
+  ol > li::before {
+    @apply text-gray-400;
+  }
+  ul > li::before {
+    @apply bg-gray-600;
+  }
+  hr {
+    @apply border-gray-600;
+  }
+  blockquote {
+    @apply text-gray-500 border-gray-600;
+    p:first-of-type:before, p:first-of-type:after {
+      @apply hidden;
+    }
+  }
+  h1 {
+    @apply text-gray-300; // white
+  }
+  h2 {
+    @apply text-gray-300; // white
+  }
+  h3 {
+    @apply text-gray-300; // white
+  }
+  h4 {
+    @apply text-gray-300; // white
+  }
+  figure figcaption {
+    @apply text-gray-400;
+  }
+  code {
+    @apply bg-gray-700 text-gray-300; // white
+  }
+  pre code {
+    @apply bg-transparent;
+  }
+  a code {
+    @apply text-gray-300; // white
+  }
+  pre {
+    @apply text-gray-200 bg-gray-800;
+  }
+  thead {
+    @apply text-gray-300 border-gray-400; // white
+  }
+  tbody tr {
+    @apply border-gray-600;
+  }
+}
