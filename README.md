@@ -28,7 +28,7 @@
 ### Writing and customization
 
 1. Modify the default config in [`blog.config.js`](blog.config.js).
-2. Run `yarn start` to start the development server.
+2. Run `yarn dev` to start the development server.
 3. Start writing by adding markdown files in [/content/posts](content/posts) and update [/content/about.md](content/about.md).
 
 #### blog.config.js
