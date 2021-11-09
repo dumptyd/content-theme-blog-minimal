@@ -99,3 +99,4 @@ git rebase upstream/master
 - [ ] Table of contents
 - [ ] Google/other analytics
 - [ ] Sitemap
+- [ ] Opt-in GitHub flavored markdown styles
