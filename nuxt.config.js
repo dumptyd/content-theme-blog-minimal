@@ -46,6 +46,11 @@ export default {
         const categorySlug = slug(label);
         file.category = { label, slug: categorySlug, href: `/categories/${categorySlug}` };
       } else file.category = { label: '', slug: '', href: '' };
+    },
+    // https://github.com/nuxt/content/issues/376#issuecomment-702193217
+    'vue-renderer:ssr:templateParams'(params) {
+      if (!blogConfig.productionPublicPath) return;
+      params.HEAD = params.HEAD.replace(`<base href="${blogConfig.productionPublicPath}">`, '');
     }
   },
 

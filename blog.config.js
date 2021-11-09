@@ -9,10 +9,10 @@ module.exports = {
   /*
     specify the root path for the deployed site.
     if the blog will be deployed under a non-root path like /blog (eg: https://user.github.io/blog
-    or https://example.com/blog), then change this to '/blog/'.
+    or https://example.com/blog), then change this to '/blog/' (trailing slash is important).
     for root path, set this to '/'.
   */
-  productionPublicPath: '/content-theme-blog-minimal',
+  productionPublicPath: '/content-theme-blog-minimal/',
 
   // theme to use for the blog. valid values are "light", "dark" and "system" (detect user's preference)
   blogTheme: 'system',
