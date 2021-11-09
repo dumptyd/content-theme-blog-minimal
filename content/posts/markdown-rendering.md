@@ -257,7 +257,7 @@ Auto-converted link https://github.com/dumptyd/content-theme-blog-minimal
 
 ## Images
 
-![Minion](https://octodex.github.com/images/nyantocat.gif)
+![Minion](/images/nyantocat.gif)
 
 
 ## Footnotes
