@@ -19,6 +19,7 @@
     "lucide-vue": "^0.16.14",
     "nuxt": "^2.15.7",
     "prism-themes": "^1.9.0",
+    "rehype-urls": "^1.1.1",
     "slug": "^5.1.0",
     "tailwind-bootstrap-grid": "^4.0.0"
   },

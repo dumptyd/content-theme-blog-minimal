@@ -1,6 +1,8 @@
 import dayjs from 'dayjs';
 import slug from 'slug';
 import blogConfig from './blog.config';
+// eslint-disable-next-line nuxt/no-cjs-in-config
+const path = require('path');
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
@@ -119,6 +121,12 @@ export default {
   content: {
     liveEdit: false,
     markdown: {
+      rehypePlugins: [
+        ['rehype-urls', function addBaseToCringeURLs(url) {
+          if (!blogConfig.productionPublicPath) return;
+          if (url.href && url.href.startsWith('/images/')) return path.join(blogConfig.productionPublicPath, url.href);
+        }]
+      ],
       prism: {
         theme: blogConfig.syntaxHighlightingTheme
       }
