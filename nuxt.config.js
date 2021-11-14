@@ -27,7 +27,7 @@ export default {
      * - tags: normalizes to [{ label, slug, href }] || []
      * - category: normalizes to { label, slug, href }
      */
-    'content:file:beforeInsert': (file) => {
+    'content:file:beforeInsert': file => {
       file.title = file.title || file.path;
       file.description = file.description || '';
 
@@ -37,7 +37,7 @@ export default {
       file.createdAtFormattedShort = dayjs(file.createdAt).format('MMM DD, YY');
       file.createdAtFormattedLong = dayjs(file.createdAt).format('MMMM DD, YYYY');
 
-      if (file.tags && file.tags.length) file.tags = file.tags.map((tag) => {
+      if (file.tags && file.tags.length) file.tags = file.tags.map(tag => {
         const tagSlug = slug(tag);
         return { label: tag.toLowerCase(), slug: tagSlug, href: `/tags/${tagSlug}` };
       });

@@ -18,7 +18,12 @@ module.exports = {
   rules: {
     semi: ['error', 'always'],
     'no-multiple-empty-lines': ['warn', { max: 3 }],
-    'space-before-function-paren': ['warn', 'never'],
+    'space-before-function-paren': ['warn', {
+      anonymous: 'never',
+      named: 'never',
+      asyncArrow: 'always'
+    }],
+    'arrow-parens': ['off'],
     curly: ['off'],
     'vue/no-v-html': ['off'],
     'vue/html-closing-bracket-newline': ['warn', { singleline: 'never', multiline: 'never' }],

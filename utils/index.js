@@ -1,11 +1,11 @@
 const POST_ITEM_FIELDS = ['createdAtFormattedShort', 'href', 'title', 'description'];
 
-export const getPosts = async($content) => {
+export const getPosts = async $content => {
   const posts = await $content('posts').sortBy('createdAt', 'desc').only(POST_ITEM_FIELDS).fetch();
   return posts;
 };
 
-export const getTags = async($content) => {
+export const getTags = async $content => {
   const posts = await $content('posts').only(['tags']).fetch();
   // get a list of unique tags
   const tags = [];
@@ -25,7 +25,7 @@ export const getTags = async($content) => {
   return ret;
 };
 
-export const getCategories = async($content) => {
+export const getCategories = async $content => {
   const posts = await $content('posts').only(['category']).fetch();
   // get a list of unique categories
   const categories = [];
@@ -44,22 +44,22 @@ export const getCategories = async($content) => {
   return ret;
 };
 
-export const getPostsByTag = async($content, tagSlug) => {
+export const getPostsByTag = async ($content, tagSlug) => {
   const posts = await $content('posts').only(POST_ITEM_FIELDS).where({ 'tags.slug': { $contains: tagSlug } }).fetch();
   return posts;
 };
 
-export const getPostsByCategory = async($content, categorySlug) => {
+export const getPostsByCategory = async ($content, categorySlug) => {
   const posts = await $content('posts').only(POST_ITEM_FIELDS).where({ 'category.slug': { $eq: categorySlug } }).fetch();
   return posts;
 };
 
-export const hasTags = async($content) => {
+export const hasTags = async ($content) => {
   const posts = await $content('posts').only(['tags']).fetch();
   return posts.some(post => !!post.tags.length);
 };
 
-export const hasCategories = async($content) => {
+export const hasCategories = async ($content) => {
   const posts = await $content('posts').only(['category']).fetch();
   return posts.some(post => !!(post.category && post.category.slug));
 };
