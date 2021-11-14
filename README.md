@@ -9,7 +9,7 @@
 - Write your content in markdown with full access to TailwindCSS utilities for styling.
 - Categories &amp; tags
 - Syntax highlighting with 30+ themes to chose from
-- Footnotes
+- Sitemap
 - Light and dark mode
 - Gallery component for rendering image grids in markdown
 - Out of the box continuous deployment for GitHub pages
@@ -98,5 +98,4 @@ git rebase upstream/master
 - [ ] Draft state
 - [ ] Table of contents
 - [ ] Google/other analytics
-- [ ] Sitemap
 - [ ] Opt-in GitHub flavored markdown styles

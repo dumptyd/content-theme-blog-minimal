@@ -7,6 +7,11 @@ module.exports = {
   description: "A minimal blog theme for writing about tech...or anything else.",
 
   /*
+    `location.origin` of where the site will be hosted (eg: https://example.com).
+    If set, this will be used for generating the sitemap.
+  */
+  origin: 'https://dumptyd.github.io',
+  /*
     specify the root path for the deployed site.
     if the blog will be deployed under a non-root path like /blog (eg: https://user.github.io/blog
     or https://example.com/blog), then change this to '/blog/' (trailing slash is important).

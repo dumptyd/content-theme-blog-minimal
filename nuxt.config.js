@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 import slug from 'slug';
 import blogConfig from './blog.config';
+import { getCategories, getTags } from './utils';
 // eslint-disable-next-line nuxt/no-cjs-in-config
 const path = require('path');
 
@@ -107,8 +108,59 @@ export default {
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
     // https://github.com/nuxt-community/color-mode-module
-    '@nuxtjs/color-mode'
+    '@nuxtjs/color-mode',
+    '@nuxtjs/sitemap'
   ],
+
+  sitemap: blogConfig.origin
+    ? {
+        hostname: blogConfig.origin,
+        gzip: true,
+        exclude: [
+          '/posts'
+        ],
+        routes: async () => {
+          const { $content } = require('@nuxt/content');
+          const posts = await $content('posts').sortBy('createdAt', 'desc').fetch();
+          const about = await $content('about').fetch().catch(() => {});
+          const categories = await getCategories($content);
+          const tags = await getTags($content);
+          return [
+            {
+              url: '/',
+              priority: 1,
+              ...(posts.length ? { lastmod: posts[0].updatedAt } : {})
+            },
+            ...posts.map(post => ({
+              url: post.href,
+              priority: 0.8,
+              lastmod: post.updatedAt
+            })),
+            {
+              url: '/about',
+              priority: 0.7,
+              ...(about ? { lastmod: about.updatedAt } : {})
+            },
+            {
+              url: '/categories',
+              priority: 0.65
+            },
+            ...categories.map(category => ({
+              url: category.href,
+              priority: 0.6
+            })),
+            {
+              url: '/tags',
+              priority: 0.65
+            },
+            ...tags.map(tags => ({
+              url: tags.href,
+              priority: 0.5
+            }))
+          ];
+        }
+      }
+    : false,
 
   colorMode: {
     classSuffix: '',
