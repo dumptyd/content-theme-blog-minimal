@@ -124,7 +124,7 @@ h1.post-content__title { /* increased specificity */
   @apply font-normal mr-3;
 }
 .post-surround {
-  @apply border-t pt-6;
+  @apply border-t pt-6 mt-8;
 }
 .post-surround__row {
   @apply row gx-2 gy-3;
