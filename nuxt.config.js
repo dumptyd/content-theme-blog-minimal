@@ -15,7 +15,15 @@ export default {
   },
 
   router: {
-    base: blogConfig.productionPublicPath
+    base: blogConfig.productionPublicPath,
+    scrollBehavior(to, from, savedPosition) {
+      // when going from a non-anchor link to an anchored section (/ -> /#something) on the same page, save the position
+      if ((from && !from.hash && to.hash) && (from.name === to.name) && savedPosition) window._lastNonAnchorSavedPosition = savedPosition;
+      // when going from an anchored section to the root of the current page (/#something -> /) and when there's a saved position
+      else if ((from && from.hash && !to.hash) && (to.name === from.name) && window._lastNonAnchorSavedPosition) return window._lastNonAnchorSavedPosition;
+      // otherwise do scrolling as usual
+      return to.hash ? { selector: to.hash } : (savedPosition || { x: 0, y: 0 });
+    }
   },
 
   hooks: {
