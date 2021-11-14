@@ -9,7 +9,7 @@ html {
   }
 }
 
-body {
+body, hr {
   @apply transition-colors duration-200;
 }
 
