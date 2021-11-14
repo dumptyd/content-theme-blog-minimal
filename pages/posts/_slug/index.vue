@@ -70,13 +70,18 @@ export default {
   },
   head() {
     if (!this.post) return;
-    const { title, description } = this.post;
+    const { title, description, category, tags, createdAt } = this.post;
 
     const meta = [
       { hid: 'og:type', property: 'og:type', content: 'article' },
       { hid: 'og:title', property: 'og:title', content: title },
-      { hid: 'twitter:title', name: 'twitter:title', content: title }
+      { hid: 'twitter:title', name: 'twitter:title', content: title },
+      { hid: 'article:published_time', property: 'article:published_time', content: createdAt }
     ];
+    if (category && category.label) meta.push({ hid: 'article:section', property: 'article:section', content: category.label });
+    tags.forEach(({ label }) => {
+      meta.push({ hid: `article:tag:${label}`, property: 'article:tag', content: label });
+    });
     if (description) meta.unshift(
       { hid: 'description', name: 'description', content: description },
       { hid: 'og:description', property: 'og:description', content: description },
