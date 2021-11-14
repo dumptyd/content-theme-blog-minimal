@@ -79,6 +79,12 @@ export default {
       { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
       { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
       { rel: 'stylesheet', href: blogConfig.fontURL }
+    ],
+    script: [
+      // cloudflare analytics setup
+      ...(process.env.NODE_ENV === 'production' && blogConfig.analyticsCloudflareToken
+        ? [{ src: 'https://static.cloudflareinsights.com/beacon.min.js', 'data-cf-beacon': `{"token": "${blogConfig.analyticsCloudflareToken}"}`, defer: true, body: true }]
+        : [])
     ]
   },
 

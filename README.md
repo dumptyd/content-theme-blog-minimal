@@ -9,8 +9,9 @@
 - Write your content in markdown with full access to TailwindCSS utilities for styling.
 - Categories &amp; tags
 - Syntax highlighting with 30+ themes to chose from
-- Sitemap
 - Light and dark mode
+- Sitemap
+- Cloudflare analytics support
 - Gallery component for rendering image grids in markdown
 - Out of the box continuous deployment for GitHub pages
 
@@ -97,5 +98,5 @@ git rebase upstream/master
 - [ ] Additional options in navbar
 - [ ] Draft state
 - [ ] Table of contents
-- [ ] Google/other analytics
+- [ ] Google analytics
 - [ ] Opt-in GitHub flavored markdown styles

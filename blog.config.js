@@ -40,6 +40,9 @@ module.exports = {
   // path to the favicon file relative to `static/`. Use a png file.
   faviconLink: '/content-theme-blog-minimal/favicon.png',
 
+  // enable Cloudflare analytics by specifying the token value provided in `data-cf-beacon` attribute of the script tag
+  analyticsCloudflareToken: '11339a1546ce47ccb1e9ce95f0273a64',
+
   // social links - all links are optional, leave empty to hide. update `components/social.vue` to add more links
   github: 'https://github.com/',
   twitter: 'https://twitter.com/',
