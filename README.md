@@ -98,5 +98,4 @@ git rebase upstream/master
 - [ ] Additional options in navbar
 - [ ] Draft state
 - [ ] Table of contents
-- [ ] Google analytics
 - [ ] Opt-in GitHub flavored markdown styles
