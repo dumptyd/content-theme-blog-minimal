@@ -32,6 +32,28 @@
 2. Run `yarn dev` to start the development server.
 3. Start writing by adding markdown files in [/content/posts](content/posts) and update [/content/about.md](content/about.md).
 
+For more configuration options, check out [Markdown and theme configuration](#markdown-and-theme-configuration).
+
+### Deploy
+
+1. Make sure there are no errors by running `yarn lint`. Run `yarn lint --fix` to fix the auto-fixable ones.
+2. Make sure `productionPublicPath` in `blog.config.js` is set correctly.
+2. If you're deploying to GitHub pages, push your changes to `master` and that's it.
+3. For deploying to other services, modify the `Deploy` step in [deploy.yml](.github/workflows/deploy.yml) and then push to master.
+
+### Getting new features
+
+```sh
+git remote add upstream https://github.com/dumptyd/content-theme-blog-minimal.git
+git fetch upstream master
+git checkout master
+git rebase upstream/master
+```
+
+---
+
+### Markdown and theme configuration
+
 #### blog.config.js
 
 All the high level customizations should be done using this file. Documentation for individual attributes is provided in [`blog.config.js`](blog.config.js).
@@ -74,22 +96,6 @@ The theme comes with these custom components that can be used inside markdown fi
 **`social`** - By default, this is shown on the footer when social links are present. Use `<social></social>` to add that section in other places like about.md.
 
 **`gallery` and `gallery-item`** - A basic set of components for showcasing images. Check out [showcasing-images.md](showcasing-images) to see them in action.
-
-### Deploy
-
-1. Make sure there are no errors by running `yarn lint`. Run `yarn lint --fix` to fix the auto-fixable ones.
-2. Make sure `productionPublicPath` in `blog.config.js` is set correctly.
-2. If you're deploying to GitHub pages, push your changes to `master` and that's it.
-3. For deploying to other services, modify the `Deploy` step in [deploy.yml](.github/workflows/deploy.yml) and then push to master.
-
-### Getting new features
-
-```sh
-git remote add upstream https://github.com/dumptyd/content-theme-blog-minimal.git
-git fetch upstream master
-git checkout master
-git rebase upstream/master
-```
 
 ### Might add in the future
 

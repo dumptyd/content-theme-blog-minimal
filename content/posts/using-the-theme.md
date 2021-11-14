@@ -16,6 +16,7 @@ createdAt: "2021-11-8 3:00:00"
   - [Writing and customization](#writing-and-customization)
   - [Deploy](#deploy)
   - [Getting new features](#getting-new-features)
+  - [Markdown and theme configuration](#markdown-and-theme-configuration)
 - [Future plans](#might-add-in-the-future)
 
 
@@ -24,8 +25,9 @@ createdAt: "2021-11-8 3:00:00"
 - Write your content in markdown with full access to TailwindCSS utilities for styling.
 - Categories &amp; tags
 - Syntax highlighting with 30+ themes to chose from
-- Footnotes
 - Light and dark mode
+- Sitemap
+- Cloudflare analytics support
 - Gallery component for rendering image grids in markdown
 - Out of the box continuous deployment for GitHub pages
 
@@ -45,6 +47,19 @@ createdAt: "2021-11-8 3:00:00"
 1. Modify the default config in [`blog.config.js`](https://github.com/dumptyd/content-theme-blog-minimal/blob/master/blog.config.js).
 2. Run `yarn start` to start the development server.
 3. Start writing by adding markdown files in [/content/posts](https://github.com/dumptyd/content-theme-blog-minimal/blob/master/content/posts) and update [/content/about.md](https://github.com/dumptyd/content-theme-blog-minimal/blob/master/content/about.md).
+
+For more configuration options, check out [Markdown and theme configuration](#markdown-and-theme-configuration).
+
+### Deploy
+
+1. Make sure there are no errors by running `yarn lint`. Run `yarn lint --fix` to fix the auto-fixable ones.
+2. Make sure `productionPublicPath` in `blog.config.js` is set correctly.
+2. If you're deploying to GitHub pages, push your changes to `master` and that's it.
+3. For deploying to other services, modify the `Deploy` step in [deploy.yml](https://github.com/dumptyd/content-theme-blog-minimal/blob/master/.github/workflows/deploy.yml) and then push to master.
+
+---
+
+### Markdown and theme configuration
 
 #### blog.config.js
 
@@ -92,13 +107,6 @@ The theme comes with these custom components that can be used inside markdown fi
 
 **For more details, check out https://content.nuxtjs.org/writing.**
 
-### Deploy
-
-1. Make sure there are no errors by running `yarn lint`. Run `yarn lint --fix` to fix the auto-fixable ones.
-2. Make sure `productionPublicPath` in `blog.config.js` is set correctly.
-2. If you're deploying to GitHub pages, push your changes to `master` and that's it.
-3. For deploying to other services, modify the `Deploy` step in [deploy.yml](https://github.com/dumptyd/content-theme-blog-minimal/blob/master/.github/workflows/deploy.yml) and then push to master.
-
 ### Getting new features
 
 ```bash
@@ -115,6 +123,4 @@ git rebase upstream/master
 - [ ] Additional options in navbar
 - [ ] Draft state
 - [ ] Table of contents
-- [ ] Google/other analytics
-- [ ] Sitemap
-- [ ] Compact styles for post content
+- [ ] Opt-in GitHub flavored markdown styles
