@@ -86,6 +86,7 @@ export default {
       { rel: 'icon', type: 'image/png', href: blogConfig.faviconLink },
       { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
       { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
+      { rel: 'preload', href: blogConfig.fontURL, as: 'style' },
       { rel: 'stylesheet', href: blogConfig.fontURL }
     ],
     script: [
