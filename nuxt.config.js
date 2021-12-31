@@ -14,6 +14,8 @@ export default {
     subFolders: false
   },
 
+  modern: 'client',
+
   router: {
     base: blogConfig.productionPublicPath,
     scrollBehavior(to, from, savedPosition) {
